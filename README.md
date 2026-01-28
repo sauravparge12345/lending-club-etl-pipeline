@@ -2,11 +2,11 @@
 
 **An automated Data Engineering pipeline to analyze credit risk using Airflow, Python, AWS S3, and Snowflake.**
 
-# Project Overview
+### Project Overview
 
 Built an automated ETL pipeline using **Apache Airflow** and **Python** to process **2.2 million loan records**. The pipeline utilizes **Pandas** for chunked data transformation and **Parquet** optimization to handle large datasets efficiently. It orchestrates the secure transfer of cleaned data to an **AWS S3 Data Lake** and loads it into **Snowflake** for scalable SQL-based credit risk analysis.
 
-# Dataset
+### Dataset
 
 **Source:** [Lending Club Loan Data (Kaggle)](https://www.kaggle.com/datasets/wordsforthewise/lending-club)
 
@@ -14,16 +14,16 @@ Built an automated ETL pipeline using **Apache Airflow** and **Python** to proce
 
 ---
 
-# Architecture & Workflow
+### Architecture & Workflow
 
 The pipeline follows a standard **Extract, Transform, Load (ETL)** architecture:
 
-# 1. Extract 
+### 1. Extract 
 
 * **Tool:** Kaggle API & Python
 * **Action:** Connects to Kaggle and downloads the raw zipped CSV file (`1.6 GB`) to the local Airflow environment.
 
-# 2. Transform 
+### 2. Transform 
 
 * **Tool:** Python (Pandas)
 * **Technique:** Implemented **Chunking** (100k rows/batch) to bypass RAM limitations.
@@ -33,20 +33,20 @@ The pipeline follows a standard **Extract, Transform, Load (ETL)** architecture:
 
 
 
-# 3. Load 
+### 3. Load 
 
 * **Tool:** AWS S3 (Boto3) & Snowflake
 * **Action:** Uploads the cleaned Parquet file to an **AWS S3 Bucket** (Data Lake).
 * **Warehouse:** Loads data from S3 into a **Snowflake** table using the `COPY INTO` command for persistent storage.
 
-# 4. Analyze 
+### 4. Analyze 
 
 * **Tool:** Snowflake SQL
 * **Insight:** Executed analytical queries to calculate **Default Rates by Loan Grade**, identifying that lower-grade loans (G) have a significantly higher risk profile compared to Grade A loans.
 
 ---
 
-# Technologies Used
+### Technologies Used
 
 * **Orchestration:** Apache Airflow
 * **Language:** Python 3.7
@@ -55,7 +55,7 @@ The pipeline follows a standard **Extract, Transform, Load (ETL)** architecture:
 * **Data Warehouse:** Snowflake
 * **Version Control:** Git / GitHub
 
-# How to Run
+### How to Run
 
 1. **Clone the repository:**
 ```bash
